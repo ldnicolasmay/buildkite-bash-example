@@ -1,0 +1,18 @@
+steps:
+  - label: 'Hello'
+    command: "echo 'Hello from bash'"
+
+  - wait
+
+  - label: 'Hello again'
+    key: hello-again
+    command: "sh ./scripts/echo_hello_again.sh"
+
+  - label: ":hammer: Example script"
+    key: example-script
+    command: "sh ./scripts/script.sh"
+    artifact_paths: "artifacts/*"
+    agents:
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+    depends_on:
+      - hello-again
