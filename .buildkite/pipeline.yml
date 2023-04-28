@@ -6,11 +6,13 @@ steps:
 
   - label: 'Hello again'
     key: hello-again
-    command: "sh ./scripts/echo_hello_again.sh"
+    #command: "sh ./scripts/echo_hello_again.sh"
+    command: "bash ./scripts/echo_hello_again.sh"
 
   - label: ":hammer: Example script"
     key: example-script
-    command: "sh ./scripts/script.sh"
+    #command: "sh ./scripts/script.sh"
+    command: "bash ./scripts/script.sh"
     artifact_paths: "artifacts/*"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
